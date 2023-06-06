@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 import SocialLogin from "../shared/SocialLogin/SocialLogin";
 import { AuthContext } from "../../providers/AuthProvider";
 
-const Registration = () => {
+const Login = () => {
 
-    const {loginUser} = useContext(AuthContext)
+    const {loginUser, googleSignIn} = useContext(AuthContext)
   const {
     register,
     handleSubmit,
@@ -24,6 +24,18 @@ const Registration = () => {
     })
     .then((error) => console.log(error))
   };
+
+//   Google Sign in Method
+const handleGoogleSignIn = ()=>
+googleSignIn()
+.then(result =>{
+    const user = result.user;
+    console.log(user)
+})
+.catch(error =>{
+    console.error(error)
+})
+
 
   return (
     <>
@@ -72,7 +84,7 @@ const Registration = () => {
             <div>
                 <span>Don't Have Account? <Link className="underline text-[#066466] font-semibold" to={"/registration"}>Register</Link></span>
             </div>
-            <SocialLogin></SocialLogin>
+            <SocialLogin handleGoogleSignIn={handleGoogleSignIn}></SocialLogin>
           </div>
         </div>
       </div>
@@ -80,4 +92,4 @@ const Registration = () => {
   );
 };
 
-export default Registration;
+export default Login;
