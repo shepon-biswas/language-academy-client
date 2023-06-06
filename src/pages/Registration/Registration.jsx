@@ -1,6 +1,5 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import SocialLogin from "../shared/SocialLogin/SocialLogin";
 import { Link } from "react-router-dom";
 
 const Registration = () => {
@@ -31,7 +30,7 @@ const Registration = () => {
               {/* register your input into the hook by invoking the "register" function */}
               <div className="form-control w-full">
                 <label className="label">
-                  <span className="label-text">Your Name</span>
+                  <span className="label-text font-semibold">Your Name</span>
                 </label>
                 <input
                   {...register("name")}
@@ -42,7 +41,7 @@ const Registration = () => {
               </div>
               <div className="form-control w-full">
                 <label className="label">
-                  <span className="label-text">Your Email</span>
+                  <span className="label-text font-semibold">Your Email</span>
                 </label>
                 <input
                   {...register("email", { required: true })}
@@ -54,7 +53,7 @@ const Registration = () => {
               </div>
               <div className="form-control w-full">
                 <label className="label">
-                  <span className="label-text">Enter Password</span>
+                  <span className="label-text font-semibold">Enter Password</span>
                 </label>
                 <input
                   {...register("password", { required: true })}
@@ -66,7 +65,7 @@ const Registration = () => {
               </div>
               <div className="form-control w-full">
                 <label className="label">
-                  <span className="label-text">Confirm Password</span>
+                  <span className="label-text font-semibold">Confirm Password</span>
                 </label>
                 <input
                   {...register("confirmPassword", { required: true })}
@@ -78,7 +77,7 @@ const Registration = () => {
               </div>
               <div className="form-control w-full">
                 <label className="label">
-                  <span className="label-text">Photo URL</span>
+                  <span className="label-text font-semibold">Photo URL</span>
                 </label>
                 <input
                   {...register("photo")}
@@ -89,7 +88,7 @@ const Registration = () => {
               </div>
               <div className="form-control w-full">
               <label className="label">
-                  <span className="label-text">Select Gender</span>
+                  <span className="label-text font-semibold">Select Gender</span>
                 </label>
               <select {...register("gender")} className="select select-bordered border-[#066466] w-full">
                 <option value="female">Female</option>
@@ -99,7 +98,7 @@ const Registration = () => {
               </div>
               <div className="form-control w-full">
                 <label className="label">
-                  <span className="label-text">Your Phone Number</span>
+                  <span className="label-text font-semibold">Your Phone Number</span>
                 </label>
                 <input
                   {...register("phone")}
@@ -110,7 +109,7 @@ const Registration = () => {
               </div>
               <div className="form-control w-full">
                 <label className="label">
-                  <span className="label-text">Your Address</span>
+                  <span className="label-text font-semibold">Your Address</span>
                 </label>
                 <input
                   {...register("address")}
@@ -119,7 +118,7 @@ const Registration = () => {
                   className="input input-bordered w-full border-[#066466] "
                 />
               </div>
-              <input className="btn bg-[#066466] w-full my-3 text-white  hover:bg-white hover:text-[#066466] hover: border-2 border-[#066466]" type="submit" />
+              <input className="btn bg-[#066466] w-full my-3 text-white  hover:bg-white hover:text-[#066466] hover: border-2 border-[#066466]" type="submit" value={"Registration"} />
             </form>
             <div>
                 <span>Already Have an Account? <Link className="underline text-[#066466] font-semibold" to={"/login"}>Login</Link></span>
