@@ -5,3 +5,11 @@
 .carousel .thumbs{
     text-align: center;
 }
+.drawer-side li{
+    line-height: '20px';
+}
+.drawer-side a.active{
+    color: white;
+    background-color: #066466;
+
+}
