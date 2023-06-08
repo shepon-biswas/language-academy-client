@@ -39,22 +39,33 @@ const Registration = () => {
         return;
     }
 
-
     createNewUser(email, password)
       .then((res) => {
         setErrorMessage("");
         const newUser = res.user;
-        console.log(newUser);
         // Update new user displayName & Photo URL
         updateUserInfo(newUser, name, photo)
           .then(() => {
-            Swal.fire({
-              position: "top-end",
-              icon: "success",
-              title: "User Created Successfully",
-              showConfirmButton: false,
-              timer: 1500,
-            });
+            const savedUser = {name: data.name, email:data.email, image: data.photo}
+              fetch('http://localhost:5000/users', {
+                method: 'POST',
+                headers:{
+                  'content-type' : 'application/json'
+                },
+                body: JSON.stringify(savedUser)
+              })
+              .then(res => res.json())
+              .then(data =>{
+                if(data.insertedId){
+                  Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "User Created Successfully",
+                    showConfirmButton: false,
+                    timer: 1500,
+                  });
+                }
+              }) 
           })
           .catch((error) => {
             setErrorMessage(error.message);
