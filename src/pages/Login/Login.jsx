@@ -1,11 +1,12 @@
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SocialLogin from "../shared/SocialLogin/SocialLogin";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
 
 const Login = () => {
+  const navigate = useNavigate();
   const { loginUser, googleSignIn } = useContext(AuthContext);
   const {
     register,
@@ -28,6 +29,7 @@ const Login = () => {
           showConfirmButton: false,
           timer: 1500,
         });
+        navigate("/")
       })
       .then((error) => console.log(error));
   };
@@ -36,8 +38,27 @@ const Login = () => {
   const handleGoogleSignIn = () =>
     googleSignIn()
       .then((result) => {
-        const user = result.user;
-        console.log(user);
+        const loggedUser = result.user;
+        // console.log(user);
+        const savedUser = {name: loggedUser.displayName, email:loggedUser.email, image: loggedUser.photoURL}
+              fetch('http://localhost:5000/users', {
+                method: 'POST',
+                headers:{
+                  'content-type' : 'application/json'
+                },
+                body: JSON.stringify(savedUser)
+              })
+              .then(res => res.json())
+              .then(() =>{
+                Swal.fire({
+                  position: "top-end",
+                  icon: "success",
+                  title: "User Login Successfully",
+                  showConfirmButton: false,
+                  timer: 1500,
+                });
+                navigate("/")
+              })
       })
       .catch((error) => {
         console.error(error);
