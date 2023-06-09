@@ -31,6 +31,27 @@ const ManageUsers = () => {
       });
   };
 
+  //   Handle Make Instructor Function
+const handleMakeInstructor = user =>{
+  console.log(user)
+  fetch(`http://localhost:5000/users/instructors/${user._id}`, {
+      method: "PATCH"
+  })
+  .then(res => res.json())
+  .then(data =>{
+      console.log(data);
+      if(data.modifiedCount){
+          refetch();
+          Swal.fire({
+              position: 'top-end',
+              icon: 'success',
+              title: `${user.name} is a Instructor Now!!!`,
+              showConfirmButton: false,
+              timer: 1500
+            })
+      }
+  })
+}
 
   return (
     <>
@@ -80,6 +101,7 @@ const ManageUsers = () => {
                     <FaUsersCog></FaUsersCog>
                   </button>
                   <button
+                  onClick={()=>handleMakeInstructor(user)}
                     title="Make Instructor"
                     className="btn btn-sm bg-orange-400"
                   >
