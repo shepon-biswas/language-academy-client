@@ -13,6 +13,8 @@ import ErrorPage from '../pages/ErrorPage/ErrorPage';
 import DashboardLayout from '../layouts/DashboardLayout';
 import MyClasses from '../pages/Dashboard/Instructors/MyClasses';
 import AddClasses from '../pages/Dashboard/Instructors/AddClasses';
+import ManageUsers from '../pages/Dashboard/Admin/ManageUsers';
+import ManageClasses from '../pages/Dashboard/Admin/ManageClasses';
 
   const router = createBrowserRouter([
     {
@@ -53,6 +55,14 @@ import AddClasses from '../pages/Dashboard/Instructors/AddClasses';
         {
           path: "my-classes",
           element:<MyClasses></MyClasses>
+        },
+        {
+          path: "manage-users",
+          element:<ManageUsers></ManageUsers>
+        },
+        {
+          path: "manage-classes",
+          element:<ManageClasses></ManageClasses>
         }
       ]
     }
