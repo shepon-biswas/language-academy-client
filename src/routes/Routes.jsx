@@ -15,12 +15,12 @@ import MyClasses from '../pages/Dashboard/Instructors/MyClasses';
 import AddClasses from '../pages/Dashboard/Instructors/AddClasses';
 import ManageUsers from '../pages/Dashboard/Admin/ManageUsers';
 import ManageClasses from '../pages/Dashboard/Admin/ManageClasses';
+import UpdateClasses from '../pages/Dashboard/Instructors/UpdateClasses';
 
   const router = createBrowserRouter([
     {
       path: "/",
       element: <MainLayout></MainLayout>,
-      errorElement: <ErrorPage></ErrorPage>,
       children:[
         {
             path:"/",
@@ -57,6 +57,11 @@ import ManageClasses from '../pages/Dashboard/Admin/ManageClasses';
           element:<MyClasses></MyClasses>
         },
         {
+          path: "update-classes/:id",
+          element:<UpdateClasses></UpdateClasses>,
+          loader: ({params}) => fetch(`http://localhost:5000/classes/${params.id}`)
+        },
+        {
           path: "manage-users",
           element:<ManageUsers></ManageUsers>
         },
@@ -65,6 +70,10 @@ import ManageClasses from '../pages/Dashboard/Admin/ManageClasses';
           element:<ManageClasses></ManageClasses>
         }
       ]
+    },
+    {
+      path:"*",
+      element: <ErrorPage></ErrorPage>
     }
 
   ]);

@@ -60,23 +60,22 @@ const handleMakeInstructor = user =>{
 
   return (
     <>
-      <h2>All Users</h2>
-      <span>{users.length}</span>
+      <h2 className="font-bold text-2xl text-[#066466]">All Users</h2>
       {/* User Table */}
-      <div className="overflow-x-auto w-10/12">
+      <div className="overflow-x-auto w-11/12">
         <table className="table table-zebra">
           {/* head */}
           <thead className="font-bold text-xl">
-            <tr>
+            <tr className="text-center">
               <th>#</th>
               <th>Name</th>
               <th>Image</th>
               <th>Email</th>
               <th>Current Role</th>
-              <th>Action</th>
+              <th>Admin/Instructor</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="text-center">
             {users.map((user, index) => (
               <tr key={user._id}>
                 <th>{index + 1}</th>

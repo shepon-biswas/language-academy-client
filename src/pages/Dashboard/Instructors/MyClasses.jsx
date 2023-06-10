@@ -65,9 +65,11 @@ const MyClasses = () => {
                 <td>{singleClassData.seats}</td>
                 <td>Outstanding</td>
                 <td>
-                  <Link className="btn btn-sm bg-[#066466] text-white">
-                    <FaPenSquare></FaPenSquare> Update
-                  </Link>
+                  <button>
+                    <Link to={`/dashboard/update-classes/${singleClassData._id}`} className="btn btn-sm bg-[#066466] text-white">
+                      <FaPenSquare></FaPenSquare> Update
+                    </Link>
+                  </button>
                 </td>
               </tr>
             ))}
