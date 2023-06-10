@@ -13,7 +13,8 @@ import { NavLink, Outlet } from "react-router-dom";
 
 const DashboardLayout = () => {
   // TODO: Need to load data from server
-  const isAdmin = true;
+  const isAdmin = false;
+  const isInstructor = true;
 
   return (
     <>
@@ -51,18 +52,24 @@ const DashboardLayout = () => {
                     </NavLink>
                   </li>
                 </>
-              ) : (
+              ) : isInstructor ? (
                 <>
-                  <h2>Normal User</h2>
+                  <li className="font-semibold">
+                    <NavLink to={"/dashboard/add-classes"}>
+                      {" "}
+                      <FaFolderPlus></FaFolderPlus> Add A Class
+                    </NavLink>
+                  </li>
+                  <li className="font-semibold">
+                    <NavLink to={"/dashboard/my-classes"}>
+                      <FaClipboardList></FaClipboardList> My Classes
+                    </NavLink>
+                  </li>
                 </>
+              ) : (
+                <div>Hello Student</div>
               )}
             </div>
-            {/* <li className="font-semibold">
-              <NavLink to={"/dashboard/add-classes"}> <FaFolderPlus></FaFolderPlus> Add A Class</NavLink>
-            </li>
-            <li className="font-semibold">
-              <NavLink to={"/dashboard/my-classes"}><FaClipboardList></FaClipboardList> My Classes</NavLink>
-            </li> */}
 
             <div className="mt-20">
               <div className="divider"></div>
