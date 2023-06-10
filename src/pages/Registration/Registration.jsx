@@ -1,12 +1,13 @@
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
 
 const Registration = () => {
   const { createNewUser, updateUserInfo } = useContext(AuthContext);
   const [errorMessage, setErrorMessage] = useState("");
+  const navigate = useNavigate();
 
   const {
     register,
@@ -35,6 +36,7 @@ const Registration = () => {
       setErrorMessage("Password must be 6 characters or more");
       return;
     }else if(password !== confirmPassword){
+      console.log(password, confirmPassword);
         setErrorMessage("Password: Password doesn't matched!");
         return;
     }
@@ -46,7 +48,7 @@ const Registration = () => {
         // Update new user displayName & Photo URL
         updateUserInfo(newUser, name, photo)
           .then(() => {
-            const savedUser = {name: data.name, email:data.email, image: data.photo}
+            const savedUser = {name: data.name, email:data.email, image: data.photo, role:"student"}
               fetch('http://localhost:5000/users', {
                 method: 'POST',
                 headers:{
@@ -63,7 +65,8 @@ const Registration = () => {
                     title: "User Created Successfully",
                     showConfirmButton: false,
                     timer: 1500,
-                  });
+                  })
+                  .then(()=>{navigate("/")})
                 }
               }) 
           })

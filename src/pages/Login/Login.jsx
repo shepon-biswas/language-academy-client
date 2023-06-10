@@ -40,7 +40,7 @@ const Login = () => {
       .then((result) => {
         const loggedUser = result.user;
         // console.log(user);
-        const savedUser = {name: loggedUser.displayName, email:loggedUser.email, image: loggedUser.photoURL}
+        const savedUser = {name: loggedUser.displayName, email:loggedUser.email, image: loggedUser.photoURL, role:"student"}
               fetch('http://localhost:5000/users', {
                 method: 'POST',
                 headers:{

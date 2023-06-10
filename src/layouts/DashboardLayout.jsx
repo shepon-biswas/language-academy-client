@@ -10,11 +10,10 @@ import {
   FaUsers,
 } from "react-icons/fa";
 import { NavLink, Outlet } from "react-router-dom";
+import useRole from "../hooks/useRole";
 
 const DashboardLayout = () => {
-  // TODO: Need to load data from server
-  const isAdmin = false;
-  const isInstructor = true;
+  const [role, isRoleLoading] = useRole();
 
   return (
     <>
@@ -39,7 +38,7 @@ const DashboardLayout = () => {
             </h2>
             <div className="divider"></div>
             <div>
-              {isAdmin ? (
+              {role==='admin' ? (
                 <>
                   <li className="font-semibold">
                     <NavLink to={"/dashboard/manage-classes"}>
@@ -52,7 +51,7 @@ const DashboardLayout = () => {
                     </NavLink>
                   </li>
                 </>
-              ) : isInstructor ? (
+              ) : role==='instructor' ? (
                 <>
                   <li className="font-semibold">
                     <NavLink to={"/dashboard/add-classes"}>
