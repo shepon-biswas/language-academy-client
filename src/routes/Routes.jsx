@@ -17,6 +17,8 @@ import ManageUsers from '../pages/Dashboard/Admin/ManageUsers';
 import ManageClasses from '../pages/Dashboard/Admin/ManageClasses';
 import UpdateClasses from '../pages/Dashboard/Instructors/UpdateClasses';
 import PrivateRoute from './PrivateRoute';
+import SelectedClass from '../pages/Dashboard/Students/SelectedClass';
+import EnrolledClasses from '../pages/Dashboard/Students/EnrolledClasses';
 
   const router = createBrowserRouter([
     {
@@ -69,6 +71,14 @@ import PrivateRoute from './PrivateRoute';
         {
           path: "manage-classes",
           element:<ManageClasses></ManageClasses>
+        },
+        {
+          path: "selected-classes",
+          element:<SelectedClass></SelectedClass>
+        },
+        {
+          path: "enrolled-classes",
+          element:<EnrolledClasses></EnrolledClasses>
         }
       ]
     },

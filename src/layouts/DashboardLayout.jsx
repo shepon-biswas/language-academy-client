@@ -1,6 +1,7 @@
 import React from "react";
 import {
   FaBookOpen,
+  FaClipboardCheck,
   FaClipboardList,
   FaEdit,
   FaFolderPlus,
@@ -66,7 +67,19 @@ const DashboardLayout = () => {
                   </li>
                 </>
               ) : (
-                <div>Hello Student</div>
+                <>
+                  <li className="font-semibold">
+                    <NavLink to={"/dashboard/selected-classes"}>
+                      {" "}
+                      <FaClipboardList></FaClipboardList> Selected Classes
+                    </NavLink>
+                  </li>
+                  <li className="font-semibold">
+                    <NavLink to={"/dashboard/enrolled-classes"}>
+                      <FaClipboardCheck></FaClipboardCheck> Enrolled Classes
+                    </NavLink>
+                  </li>
+                </>
               )}
             </div>
 
