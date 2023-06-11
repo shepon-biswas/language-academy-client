@@ -4,6 +4,8 @@ import { Helmet } from "react-helmet-async";
 import ForGrowth from '../ForGrowth/ForGrowth';
 import Reviews from '../Reviews/Reviews';
 import Partner from '../Partner/Partner';
+import PopularInstructor from '../PopularInstructor.jsx/PopularInstructor';
+import PopularClasses from '../PopularClasses/PopularClasses';
 
 const Home = () => {
     return (
@@ -12,6 +14,8 @@ const Home = () => {
                 <title>Home | Fluent Language Academy</title>
             </Helmet>
             <Slider></Slider>
+            <PopularClasses></PopularClasses>
+            <PopularInstructor></PopularInstructor>
             <ForGrowth></ForGrowth>
             <Reviews></Reviews>
             <Partner></Partner>
