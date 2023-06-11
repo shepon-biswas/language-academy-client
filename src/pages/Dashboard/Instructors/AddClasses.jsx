@@ -4,6 +4,7 @@ import { AuthContext } from "../../../providers/AuthProvider";
 import axios from "axios";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const image_hosting_secret = import.meta.env.VITE_IMG_UPLOAD_TOKEN;
 
@@ -58,6 +59,9 @@ const AddClasses = () => {
 
   return (
     <>
+    <Helmet>
+      <title>Add A Class | Fluent Language Acamedy</title>
+    </Helmet>
       <div className=" w-10/12 px-10 py-5 bg-white rounded-md shadow-lg">
         <h2 className="text-center font-bold text-2xl text-[#066466]">
           Add A Class

@@ -16,6 +16,7 @@ import AddClasses from '../pages/Dashboard/Instructors/AddClasses';
 import ManageUsers from '../pages/Dashboard/Admin/ManageUsers';
 import ManageClasses from '../pages/Dashboard/Admin/ManageClasses';
 import UpdateClasses from '../pages/Dashboard/Instructors/UpdateClasses';
+import PrivateRoute from './PrivateRoute';
 
   const router = createBrowserRouter([
     {
@@ -46,7 +47,7 @@ import UpdateClasses from '../pages/Dashboard/Instructors/UpdateClasses';
     },
     {
       path:"dashboard",
-      element: <DashboardLayout></DashboardLayout>,
+      element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
       children:[
         {
           path:"add-classes",

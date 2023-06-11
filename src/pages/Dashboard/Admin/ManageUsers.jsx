@@ -4,6 +4,7 @@ import { useQuery } from "react-query";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../../providers/AuthProvider";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 
 const ManageUsers = () => {
   const [axiosSecure] = useAxiosSecure();
@@ -60,6 +61,9 @@ const handleMakeInstructor = user =>{
 
   return (
     <>
+    <Helmet>
+      <title>Manage All Users | Fluent Language Acamedy</title>
+    </Helmet>
       <h2 className="font-bold text-2xl text-[#066466]">All Users</h2>
       {/* User Table */}
       <div className="overflow-x-auto w-11/12">

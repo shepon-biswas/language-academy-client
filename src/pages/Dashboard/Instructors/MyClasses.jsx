@@ -2,11 +2,15 @@ import React from "react";
 import { FaPenSquare } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import useClasses from "../../../hooks/useClasses";
+import { Helmet } from "react-helmet-async";
 
 const MyClasses = () => {
   const { classes, refetch } = useClasses();
   return (
     <>
+    <Helmet>
+      <title>My Classes | Fluent Language Acamedy</title>
+    </Helmet>
       <h3 className="font-bold text-2xl text-[#066466]">My All Classes</h3>
       <div className="overflow-x-auto w-10/12">
         <table className="table">

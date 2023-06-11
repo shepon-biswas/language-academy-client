@@ -3,6 +3,7 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { useQuery } from "react-query";
 import { FaCheckDouble, FaMarker, FaTimesCircle } from "react-icons/fa";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const ManageClasses = () => {
   const [axiosSecure] = useAxiosSecure();
@@ -55,6 +56,9 @@ const ManageClasses = () => {
 
   return (
     <>
+    <Helmet>
+      <title>Manage All Classes | Fluent Language Acamedy</title>
+    </Helmet>
       <h2 className="font-bold text-2xl text-[#066466]">Manage Classes</h2>
       {/* Classes List */}
       <div className="overflow-x-auto w-11/12">

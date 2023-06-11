@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const Registration = () => {
   const { createNewUser, updateUserInfo } = useContext(AuthContext);
@@ -81,6 +82,9 @@ const Registration = () => {
 
   return (
     <>
+    <Helmet>
+      <title>Registration | Fluent Language Academy</title>
+    </Helmet>
       <div className="w-11/12 md:w-10/12 mx-auto">
         <div className="my-5">
           <h3 className="text-center text-3xl font-bold text-[#066466]">
