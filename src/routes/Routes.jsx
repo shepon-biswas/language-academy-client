@@ -19,6 +19,7 @@ import UpdateClasses from '../pages/Dashboard/Instructors/UpdateClasses';
 import PrivateRoute from './PrivateRoute';
 import SelectedClass from '../pages/Dashboard/Students/SelectedClass';
 import EnrolledClasses from '../pages/Dashboard/Students/EnrolledClasses';
+import Checkout from '../pages/Payment/Checkout';
 
   const router = createBrowserRouter([
     {
@@ -79,6 +80,11 @@ import EnrolledClasses from '../pages/Dashboard/Students/EnrolledClasses';
         {
           path: "enrolled-classes",
           element:<EnrolledClasses></EnrolledClasses>
+        },
+        {
+          path: "checkout/:id",
+          element: <Checkout></Checkout>,
+          loader: ({params}) => fetch(`http://localhost:5000/carts/${params.id}`)
         }
       ]
     },

@@ -1,12 +1,17 @@
 import React from "react";
 import useCart from "../../../hooks/useCart";
 import { FaCcStripe, FaStripe, FaTrash } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 
 const SelectedClass = () => {
   const { cart } = useCart();
-  console.log(cart);
+  // console.log(cart);
   return (
     <>
+    <Helmet>
+      <title>My Selected Classes | Fluent Language Academy</title>
+    </Helmet>
       <h2>Hello All Cart{cart.length}</h2>
       {/* Cart Items */}
       <div className="overflow-x-auto w-11/12 ">
@@ -17,6 +22,7 @@ const SelectedClass = () => {
               <th>#</th>
               <th>Image</th>
               <th>Name</th>
+              <th>Price</th>
               <th>Delete</th>
               <th>Pay</th>
             </tr>
@@ -33,6 +39,7 @@ const SelectedClass = () => {
                   </div>
                 </td>
                 <td>{cartInfo.name}</td>
+                <td>{cartInfo.price}</td>
                 <td>
                 <button
                     //   onClick={()=>handleMakeAdmin(user)}
@@ -43,12 +50,18 @@ const SelectedClass = () => {
                   </button>
                 </td>
                 <td>
-                <button
-                    //   onClick={()=>handleMakeAdmin(user)}
+                {/* <button
+                      // onClick={()=>dashboard/checkout(cartInfo._id)}
                     title="Make Admin"
                     className="btn btn-sm text-white bg-[#066446] hover:text-orange-500 me-2 "
                   >
+                    <Link> </Link>
                    PAY <FaStripe></FaStripe>
+                  </button> */}
+                  <button>
+                    <Link to={`/dashboard/checkout/${cartInfo._id}`} className="btn btn-sm text-white bg-[#066446] hover:text-orange-500 me-2">
+                      <FaStripe></FaStripe> Pay
+                    </Link>
                   </button>
                   
                 </td>
