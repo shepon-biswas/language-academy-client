@@ -9,7 +9,7 @@ const Partner = () => {
           <span className="text-[#066466]"> Associate With</span> ----
         </h2>
       </div>
-      <div className="my-14 md:grid grid-cols-5 items-center space-y-8 md:space-y-0 px-5 py-10 rounded-md gap-10 bg-gradient-to-r from-[#066466] to-[#03dee2]">
+      <div className="my-14 md:grid grid-cols-5 items-center space-y-8 md:space-y-0cl px-5 py-10 rounded-md gap-10 bg-gradient-to-r from-[#066466] to-[#03dee2]">
         <div>
           <img
             src="https://i.ibb.co/b7bhxWX/partner3.png"

@@ -1,12 +1,17 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import SocialLogin from "../shared/SocialLogin/SocialLogin";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet-async";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Login = () => {
+  // Password visible/Hide Code goes here
+  const [visible, setVisible] = useState(false);
+
+  // React hook form
   const navigate = useNavigate();
   const { loginUser, googleSignIn } = useContext(AuthContext);
   const {
@@ -30,7 +35,7 @@ const Login = () => {
           showConfirmButton: false,
           timer: 1500,
         });
-        navigate("/")
+        navigate("/");
       })
       .then((error) => console.log(error));
   };
@@ -41,25 +46,30 @@ const Login = () => {
       .then((result) => {
         const loggedUser = result.user;
         // console.log(user);
-        const savedUser = {name: loggedUser.displayName, email:loggedUser.email, image: loggedUser.photoURL, role:"student"}
-              fetch('http://localhost:5000/users', {
-                method: 'POST',
-                headers:{
-                  'content-type' : 'application/json'
-                },
-                body: JSON.stringify(savedUser)
-              })
-              .then(res => res.json())
-              .then(() =>{
-                Swal.fire({
-                  position: "top-end",
-                  icon: "success",
-                  title: "User Login Successfully",
-                  showConfirmButton: false,
-                  timer: 1500,
-                });
-                navigate("/")
-              })
+        const savedUser = {
+          name: loggedUser.displayName,
+          email: loggedUser.email,
+          image: loggedUser.photoURL,
+          role: "student",
+        };
+        fetch("http://localhost:5000/users", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(savedUser),
+        })
+          .then((res) => res.json())
+          .then(() => {
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "User Login Successfully",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+            navigate("/");
+          });
       })
       .catch((error) => {
         console.error(error);
@@ -67,9 +77,9 @@ const Login = () => {
 
   return (
     <>
-    <Helmet>
-      <title>Login | Fluent Language Academy</title>
-    </Helmet>
+      <Helmet>
+        <title>Login | Fluent Language Academy</title>
+      </Helmet>
       <div className="w-11/12 md:w-10/12 mx-auto">
         <div className="my-5">
           <h3 className="text-center text-3xl font-bold text-[#066466]">
@@ -101,18 +111,28 @@ const Login = () => {
                   <span className="text-red-500">This field is required</span>
                 )}
               </div>
-              <div className="form-control w-full">
+              <div className="form-control w-full  ">
                 <label className="label">
                   <span className="label-text font-semibold">
                     Enter Password
                   </span>
                 </label>
-                <input
-                  {...register("password", { required: true })}
-                  type="password"
-                  placeholder="type password"
-                  className="input input-bordered w-full border-[#066466] "
-                />
+                <div className="flex items-center relative">
+                  <input
+                    {...register("password", { required: true })}
+                    type={visible ? "text" : "password"}
+                    placeholder="type password"
+                    className="input input-bordered w-full border-[#066466] "
+                  />
+                  <div
+                  onClick={() => setVisible(!visible)}
+                  className="absolute right-5 cursor-pointer"
+                >
+                  {visible ? <FaEye></FaEye> : <FaEyeSlash></FaEyeSlash>}
+                </div>
+                </div>
+                
+
                 {errors.password && (
                   <span className="text-red-500">This field is required</span>
                 )}
