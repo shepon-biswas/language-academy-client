@@ -39,7 +39,7 @@ const AddClasses = () => {
           // classes.image = imageUrl;
           const newClassData = {className, classImage:imageUrl, instructorName, instructorEmail, price:parseInt(price),seats:parseInt(seats)}
           console.log(newClassData)
-          axiosSecure.post('/classes', {...newClassData, status: "pending"})
+          axiosSecure.post('/classes', {...newClassData, status: "pending", enrolled_student: 0 })
           .then(data =>{
             // console.log("after insert", data.data)
             if(data.data.insertedId){

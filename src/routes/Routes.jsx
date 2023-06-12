@@ -20,6 +20,9 @@ import PrivateRoute from './PrivateRoute';
 import SelectedClass from '../pages/Dashboard/Students/SelectedClass';
 import EnrolledClasses from '../pages/Dashboard/Students/EnrolledClasses';
 import Checkout from '../pages/Payment/Checkout';
+import AdminRoute from './AdminRoute';
+import InstructorRoute from './InstructorRoute';
+import StudentRoute from './StudentRoute';
 
   const router = createBrowserRouter([
     {
@@ -54,36 +57,36 @@ import Checkout from '../pages/Payment/Checkout';
       children:[
         {
           path:"add-classes",
-          element: <AddClasses></AddClasses>
+          element: <InstructorRoute><AddClasses></AddClasses></InstructorRoute>
         },
         {
           path: "my-classes",
-          element:<MyClasses></MyClasses>
+          element:<InstructorRoute><MyClasses></MyClasses></InstructorRoute>
         },
         {
           path: "update-classes/:id",
-          element:<UpdateClasses></UpdateClasses>,
+          element:<InstructorRoute><UpdateClasses></UpdateClasses></InstructorRoute>,
           loader: ({params}) => fetch(`http://localhost:5000/classes/${params.id}`)
         },
         {
           path: "manage-users",
-          element:<ManageUsers></ManageUsers>
+          element:<AdminRoute><ManageUsers></ManageUsers></AdminRoute>
         },
         {
           path: "manage-classes",
-          element:<ManageClasses></ManageClasses>
+          element:<AdminRoute><ManageClasses></ManageClasses></AdminRoute>
         },
         {
           path: "selected-classes",
-          element:<SelectedClass></SelectedClass>
+          element:<StudentRoute><SelectedClass></SelectedClass></StudentRoute>
         },
         {
           path: "enrolled-classes",
-          element:<EnrolledClasses></EnrolledClasses>
+          element:<StudentRoute><EnrolledClasses></EnrolledClasses></StudentRoute>
         },
         {
           path: "checkout/:id",
-          element: <Checkout></Checkout>,
+          element: <StudentRoute><Checkout></Checkout></StudentRoute>,
           loader: ({params}) => fetch(`http://localhost:5000/carts/${params.id}`)
         }
       ]

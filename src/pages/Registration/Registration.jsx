@@ -8,6 +8,7 @@ import { Helmet } from "react-helmet-async";
 const Registration = () => {
   const { createNewUser, updateUserInfo } = useContext(AuthContext);
   const [errorMessage, setErrorMessage] = useState("");
+  const [passwordError, setPasswordError] = useState("");
   const navigate = useNavigate();
 
   const {
@@ -37,8 +38,7 @@ const Registration = () => {
       setErrorMessage("Password must be 6 characters or more");
       return;
     }else if(password !== confirmPassword){
-      console.log(password, confirmPassword);
-        setErrorMessage("Password: Password doesn't matched!");
+      setPasswordError("Password: Password doesn't matched!");
         return;
     }
 
@@ -75,7 +75,7 @@ const Registration = () => {
             setErrorMessage(error.message);
           });
       })
-      .catch((error) => console.log(error));
+      .catch((error) => setErrorMessage(error.message));
 
     console.log(data);
   };
@@ -159,7 +159,7 @@ const Registration = () => {
                 {errors.confirmPassword && (
                   <span className="text-red-500">This field is required</span>
                 )}
-                <p className="text-red-600">{errorMessage}</p>
+                <p className="text-red-600">{passwordError}</p>
               </div>
               <div className="form-control w-full">
                 <label className="label">

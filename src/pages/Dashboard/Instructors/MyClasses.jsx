@@ -15,7 +15,7 @@ const MyClasses = () => {
       <div className="overflow-x-auto w-10/12">
         <table className="table">
           {/* head */}
-          <thead className="font-bold text-base">
+          <thead className="font-bold text-base text-center">
             <tr>
               <th>#</th>
               <th>Image</th>
@@ -26,7 +26,7 @@ const MyClasses = () => {
               <th>Action</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="text-center">
             {classes.map((singleClassData, index) => (
               <tr key={singleClassData._id}>
                 <th>
@@ -66,7 +66,7 @@ const MyClasses = () => {
                     ""
                   )}
                 </td>
-                <td>{singleClassData.seats}</td>
+                <td>{singleClassData.enrolled_student}</td>
                 <td>Outstanding</td>
                 <td>
                   <button>

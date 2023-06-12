@@ -5,55 +5,8 @@ import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 
 const PopularClassesCard = ({ classData }) => {
-    const {_id, className, instructorName, classImage, price} = classData;
-    // const {user} = useContext(AuthContext);
-    // const naviagte = useNavigate();
-
-    // const handleSelect =(classData)=>{
-    //     // console.log(classData);
-    //     if(user && user.email){
-    //         const cartItem = {classId: _id, name:className, image:classImage, price, email: user.email }
-    //         // console.log(cartItem);
-    //         fetch(`http://localhost:5000/carts`, {
-    //             method:"POST",
-    //             headers:{
-    //                 'content-type': 'application/json'
-    //             },
-    //             body: JSON.stringify(cartItem)
-    //         })
-    //         .then(res => {
-    //             res.json()
-    //             console.log(res)
-    //         })
-    //         .then(data =>{
-    //             console.log(data);
-    //             if(data.insertedId){
-    //                 Swal.fire({
-    //                     position: 'top-end',
-    //                     icon: 'success',
-    //                     title: 'Class Added to the cart successfully!',
-    //                     showConfirmButton: false,
-    //                     timer: 1500
-    //                   })
-    //             }
-    //         })
-    //     }else{
-    //         Swal.fire({
-    //             title: 'Please Login to Adda a class!',
-    //             text: "You won't be able to revert this!",
-    //             icon: 'warning',
-    //             showCancelButton: true,
-    //             confirmButtonColor: '#3085d6',
-    //             cancelButtonColor: '#d33',
-    //             confirmButtonText: 'Yes, LOGIN'
-    //           }).then((result) => {
-    //             if (result.isConfirmed) {
-    //                 naviagte("/login")
-    //             }
-    //           })
-    //     }
-        
-    // }
+  console.log(classData)
+    const {_id, className, instructorName, enrolled_student, classImage, price} = classData;
     
   return (
     <>
@@ -73,7 +26,7 @@ const PopularClassesCard = ({ classData }) => {
           <div>
             <div>
               <span className="inline-flex items-center gap-3 font-bold">
-                <FaUsers></FaUsers>Available Seats:
+                <FaUsers></FaUsers>Total Enrolled: {enrolled_student}
               </span>
             </div>
             <div>

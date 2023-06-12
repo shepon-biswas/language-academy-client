@@ -7,14 +7,10 @@ import useCart from "../../hooks/useCart";
 import { useLoaderData, useParams } from "react-router-dom";
 
 const stripePromise = loadStripe(import.meta.env.VITE_PAYMENT_KEY);
-console.log(import.meta.env.VITE_PAYMENT_KEY)
 
 const Checkout = () => {
   const data = useLoaderData();
   const {price} = data;
-  // console.log(price)
-
-
 
   return (
     <>
@@ -23,7 +19,7 @@ const Checkout = () => {
       </Helmet>
       <h2 className="text-xl">Please Pay <span className="text-[#066466] font-bold">${price}</span></h2>
       <Elements stripe={stripePromise}>
-        <CheckoutForm price={price}></CheckoutForm>
+        <CheckoutForm price={price} data={data}></CheckoutForm>
       </Elements>
     </>
   );

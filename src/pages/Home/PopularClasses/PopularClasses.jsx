@@ -4,7 +4,8 @@ import PopularClassesCard from "./PopularClassesCard";
 
 const PopularClasses = () => {
   const { classes } = useClasses("approved");
-  // console.log(classes);
+  const popularClasses = classes.slice(0, 6);
+  
   return (
     <>
       <div className="my-14">
@@ -16,7 +17,7 @@ const PopularClasses = () => {
       {/* Classes Information */}
       <div className="md:grid grid-cols-3 gap-5">
         {
-          classes.map(classData=><PopularClassesCard key={classData._id} classData={classData}></PopularClassesCard>)
+          popularClasses.map(classData=><PopularClassesCard key={classData._id} classData={classData}></PopularClassesCard>)
         }
       </div>
     </>

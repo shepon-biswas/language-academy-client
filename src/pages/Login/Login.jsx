@@ -10,6 +10,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 const Login = () => {
   // Password visible/Hide Code goes here
   const [visible, setVisible] = useState(false);
+  const [error, setError] = useState("");
 
   // React hook form
   const navigate = useNavigate();
@@ -37,7 +38,7 @@ const Login = () => {
         });
         navigate("/");
       })
-      .then((error) => console.log(error));
+      .then((error) => setError(error.message));
   };
 
   //   Google Sign in Method
@@ -136,6 +137,7 @@ const Login = () => {
                 {errors.password && (
                   <span className="text-red-500">This field is required</span>
                 )}
+                <p className="text-red-600">{error}</p>
               </div>
 
               <input
