@@ -56,7 +56,6 @@ const DashboardLayout = () => {
                 <>
                   <li className="font-semibold">
                     <NavLink to={"/dashboard/add-classes"}>
-                      {" "}
                       <FaFolderPlus></FaFolderPlus> Add A Class
                     </NavLink>
                   </li>
@@ -70,7 +69,6 @@ const DashboardLayout = () => {
                 <>
                   <li className="font-semibold">
                     <NavLink to={"/dashboard/selected-classes"}>
-                      {" "}
                       <FaClipboardList></FaClipboardList> Selected Classes
                     </NavLink>
                   </li>
