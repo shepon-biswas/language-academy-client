@@ -38,7 +38,7 @@ const Login = () => {
         });
         navigate("/");
       })
-      .then((error) => setError(error.message));
+      .catch((error) => setError(error.message));
   };
 
   //   Google Sign in Method

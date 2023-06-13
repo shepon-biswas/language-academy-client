@@ -1,12 +1,12 @@
 import React from "react";
 import {
-  FaBookOpen,
-  FaClipboardCheck,
+  FaCheckDouble,
   FaClipboardList,
   FaEdit,
   FaFolderPlus,
   FaHome,
   FaIndent,
+  FaListAlt,
   FaUserTie,
   FaUsers,
 } from "react-icons/fa";
@@ -14,7 +14,7 @@ import { NavLink, Outlet } from "react-router-dom";
 import useRole from "../hooks/useRole";
 
 const DashboardLayout = () => {
-  const [role, isRoleLoading] = useRole();
+  const [role] = useRole();
 
   return (
     <>
@@ -69,12 +69,17 @@ const DashboardLayout = () => {
                 <>
                   <li className="font-semibold">
                     <NavLink to={"/dashboard/selected-classes"}>
-                      <FaClipboardList></FaClipboardList> Selected Classes
+                      <FaListAlt></FaListAlt> Selected Classes
                     </NavLink>
                   </li>
                   <li className="font-semibold">
                     <NavLink to={"/dashboard/enrolled-classes"}>
-                      <FaClipboardCheck></FaClipboardCheck> Enrolled Classes
+                      <FaCheckDouble></FaCheckDouble> Enrolled Classes
+                    </NavLink>
+                  </li>
+                  <li className="font-semibold">
+                    <NavLink to={"/dashboard/transaction"}>
+                      <FaClipboardList></FaClipboardList> Payment History
                     </NavLink>
                   </li>
                 </>

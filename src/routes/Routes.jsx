@@ -23,6 +23,7 @@ import Checkout from '../pages/Payment/Checkout';
 import AdminRoute from './AdminRoute';
 import InstructorRoute from './InstructorRoute';
 import StudentRoute from './StudentRoute';
+import TransactionHistory from '../pages/Dashboard/Students/TransactionHistory';
 
   const router = createBrowserRouter([
     {
@@ -88,6 +89,10 @@ import StudentRoute from './StudentRoute';
           path: "checkout/:id",
           element: <StudentRoute><Checkout></Checkout></StudentRoute>,
           loader: ({params}) => fetch(`http://localhost:5000/carts/${params.id}`)
+        },
+        {
+          path: "transaction",
+          element: <StudentRoute><TransactionHistory></TransactionHistory></StudentRoute>
         }
       ]
     },

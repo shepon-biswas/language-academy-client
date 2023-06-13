@@ -5,7 +5,6 @@ import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 
 const PopularClassesCard = ({ classData }) => {
-  console.log(classData)
     const {_id, className, instructorName, enrolled_student, classImage, price} = classData;
     
   return (
