@@ -4,7 +4,7 @@ import useRole from "../hooks/useRole";
 import { useNavigate } from "react-router-dom";
 import { ThreeCircles } from "react-loader-spinner";
 
-const InstructorRoute = () => {
+const InstructorRoute = ({children}) => {
     const { user, loading } = useContext(AuthContext);
 
     const [role, isRoleLoading] = useRole();

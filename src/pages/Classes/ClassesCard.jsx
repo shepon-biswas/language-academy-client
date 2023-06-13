@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 import { AuthContext } from "../../providers/AuthProvider";
 
 const ClassesCard = ({ singleClassData }) => {
-  const { _id, className, instructorName, classImage, price, seats } = singleClassData;
+  const { _id, className, instructorName, classImage, price, seats, enrolled_student } = singleClassData;
   const { user } = useContext(AuthContext);
   const naviagte = useNavigate();
 
@@ -19,6 +19,7 @@ const ClassesCard = ({ singleClassData }) => {
         price,
         seats,
         email: user.email,
+        enrolled_student,
       };
       // console.log("cart....", cartItem);
       fetch(`http://localhost:5000/carts`, {
@@ -28,12 +29,10 @@ const ClassesCard = ({ singleClassData }) => {
         },
         body: JSON.stringify(cartItem),
       })
-        .then((res) => {
-          res.json();
-          console.log(res);
-        })
+        .then((res) => res.json())
         .then((data) => {
           console.log(data);
+
           if (data.insertedId) {
             Swal.fire({
               position: "top-end",

@@ -1,6 +1,6 @@
 import React from "react";
 import useCart from "../../../hooks/useCart";
-import { FaCcStripe, FaStripe, FaTrash } from "react-icons/fa";
+import { FaStripe, FaTrash } from "react-icons/fa";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
