@@ -54,7 +54,7 @@ const AuthProvider = ({ children }) => {
         // get and set token using AXIOS
         if(loggedUser){
 
-          axios.post('http://localhost:5000/generate-jwt', {email: loggedUser.email})
+          axios.post('https://fluent-language-academy-server.vercel.app/generate-jwt', {email: loggedUser.email})
           .then(data =>{
             // console.log(data.data)
             localStorage.setItem('access-token', data.data.token)

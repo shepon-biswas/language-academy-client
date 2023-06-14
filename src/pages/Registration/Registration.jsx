@@ -50,7 +50,7 @@ const Registration = () => {
         updateUserInfo(newUser, name, photo)
           .then(() => {
             const savedUser = {name: data.name, email:data.email, image: data.photo, role:"student"}
-              fetch('http://localhost:5000/users', {
+              fetch('https://fluent-language-academy-server.vercel.app/users', {
                 method: 'POST',
                 headers:{
                   'content-type' : 'application/json'

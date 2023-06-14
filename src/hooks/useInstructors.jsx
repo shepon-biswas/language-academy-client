@@ -7,7 +7,7 @@ const useInstructors = () => {
     const {data: instructors= [], refetch, isLoading: loading } = useQuery({
         queryKey: ['instructors'],
         queryFn: async()=>{
-                const res = await axios.get(`http://localhost:5000/users/instructors`)
+                const res = await axios.get(`https://fluent-language-academy-server.vercel.app/users/instructors`)
                 return res.data;
         }
     })

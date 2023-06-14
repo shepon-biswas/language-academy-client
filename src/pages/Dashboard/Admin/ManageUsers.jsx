@@ -18,7 +18,7 @@ const ManageUsers = () => {
   //   Handle Make Admin Function
   const handleMakeAdmin = (user) => {
     console.log(user);
-    fetch(`http://localhost:5000/users/admin/${user._id}`, {
+    fetch(`https://fluent-language-academy-server.vercel.app/users/admin/${user._id}`, {
       method: "PATCH",
     })
       .then((res) => res.json())
@@ -40,7 +40,7 @@ const ManageUsers = () => {
   //   Handle Make Instructor Function
 const handleMakeInstructor = user =>{
   console.log(user)
-  fetch(`http://localhost:5000/users/instructors/${user._id}`, {
+  fetch(`https://fluent-language-academy-server.vercel.app/users/instructors/${user._id}`, {
       method: "PATCH"
   })
   .then(res => res.json())

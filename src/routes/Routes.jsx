@@ -67,7 +67,7 @@ import TransactionHistory from '../pages/Dashboard/Students/TransactionHistory';
         {
           path: "update-classes/:id",
           element:<InstructorRoute><UpdateClasses></UpdateClasses></InstructorRoute>,
-          loader: ({params}) => fetch(`http://localhost:5000/classes/${params.id}`)
+          loader: ({params}) => fetch(`https://fluent-language-academy-server.vercel.app/classes/${params.id}`)
         },
         {
           path: "manage-users",
@@ -88,7 +88,7 @@ import TransactionHistory from '../pages/Dashboard/Students/TransactionHistory';
         {
           path: "checkout/:id",
           element: <StudentRoute><Checkout></Checkout></StudentRoute>,
-          loader: ({params}) => fetch(`http://localhost:5000/carts/${params.id}`)
+          loader: ({params}) => fetch(`https://fluent-language-academy-server.vercel.app/carts/${params.id}`)
         },
         {
           path: "transaction",

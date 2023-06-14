@@ -14,7 +14,7 @@ const ManageClasses = () => {
 
   //   Handle Make Admin Function
   const makeClassApproved = (singleClassData) => {
-    fetch(`http://localhost:5000/classes/approved/${singleClassData._id}`, {
+    fetch(`https://fluent-language-academy-server.vercel.app/classes/approved/${singleClassData._id}`, {
       method: "PATCH",
     })
       .then((res) => res.json())
@@ -35,7 +35,7 @@ const ManageClasses = () => {
 
   //   Handle Make Admin Function
   const makeClassDenied = (singleClassData) => {
-    fetch(`http://localhost:5000/classes/denied/${singleClassData._id}`, {
+    fetch(`https://fluent-language-academy-server.vercel.app/classes/denied/${singleClassData._id}`, {
       method: "PATCH",
     })
       .then((res) => res.json())

@@ -6,10 +6,10 @@ const useClasses = (status) => {
         queryKey: ['classes', status],
         queryFn: async()=>{
             if(!status){
-                const res = await axios.get(`http://localhost:5000/classes`)
+                const res = await axios.get(`https://fluent-language-academy-server.vercel.app/classes`)
                 return res.data
             }else{
-                const res = await axios.get(`http://localhost:5000/classes?status=${status}`)
+                const res = await axios.get(`https://fluent-language-academy-server.vercel.app/classes?status=${status}`)
                 return res.data;
             }
         }

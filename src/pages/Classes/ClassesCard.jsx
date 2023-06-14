@@ -22,7 +22,7 @@ const ClassesCard = ({ singleClassData }) => {
         enrolled_student,
       };
       // console.log("cart....", cartItem);
-      fetch(`http://localhost:5000/carts`, {
+      fetch(`https://fluent-language-academy-server.vercel.app/carts`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
