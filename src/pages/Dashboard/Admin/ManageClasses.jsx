@@ -54,6 +54,39 @@ const ManageClasses = () => {
       });
   };
 
+  // handleFeedback function
+  const handleFeedback = (id) =>{
+    Swal.fire({
+      title: 'Give Feedback to Instructor',
+      input: 'textarea',
+      inputAttributes: {
+        autocapitalize: 'off'
+      },
+      showCancelButton: true,
+      confirmButtonText: 'Send Feedback ',
+      allowOutsideClick: () => !Swal.isLoading()
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const feedback = result.value;
+        axiosSecure.patch(`/classes/${id}`, {feedback: feedback})
+        .then(res =>{
+          if(res?.data?.modifiedCount > 0){
+            Swal.fire(
+              "Feedback Sent!",
+              "Feedback Sent Seccessfully!",
+              "success"
+            ).then(()=>{
+              refetch()
+            })
+          }
+        })
+        
+      }
+    })
+  }
+
+
+
   return (
     <>
     <Helmet>
@@ -107,15 +140,16 @@ const ManageClasses = () => {
                 </td>
                 <td>
                   <button
-
-                    onClick={() => makeClassApproved(singleClassData, 0)}
+                    disabled={singleClassData.status !== "pending"}
+                    onClick={() => makeClassApproved(singleClassData)}
                     title="Give Approval"
                     className="btn btn-sm text-white bg-green-600 hover:text-orange-500 me-2 "
                   >
                     <FaCheckDouble></FaCheckDouble>
                   </button>
                   <button
-                    onClick={() => makeClassDenied(singleClassData, 1)}
+                  disabled={singleClassData.status !== "pending"}
+                    onClick={() => makeClassDenied(singleClassData)}
                     title="Denied Class"
                     className="btn btn-sm bg-red-600 text-white"
                   >
@@ -124,7 +158,8 @@ const ManageClasses = () => {
                 </td>
                 <td className="text-center">
                   <button
-                    //   onClick={()=>handleMakeInstructor(user)}
+                  disabled={singleClassData.feedback}
+                      onClick={()=>handleFeedback(singleClassData._id)}
                     title="Give Feedback"
                     className="btn btn-sm bg-blue-600 text-white"
                   >

@@ -34,7 +34,7 @@ const TransactionHistory = () => {
                 <td><span className="bg-green-600 text-white px-3 py-1 rounded">{classInfo.price}</span></td>
                 <td>{classInfo.name}</td>
                 <td>{classInfo.email}</td>
-                <td>{classInfo.date}</td>
+                <td>{new Date(classInfo.date).toLocaleTimeString()}, {new Date(classInfo.date).toLocaleDateString()}</td>
               </tr>
             ))}
           </tbody>

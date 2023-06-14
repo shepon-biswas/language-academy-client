@@ -11,7 +11,7 @@ const Classes = () => {
     <Helmet>
       <title>All Classes | Fluent Language Academy</title>
     </Helmet>
-      <div className="md:grid grid-cols-3 my-14">
+      <div className="md:grid grid-cols-3 my-14 gap-10">
         {classes.map((singleClassData) => (
           <ClassesCard 
           key={singleClassData._id}

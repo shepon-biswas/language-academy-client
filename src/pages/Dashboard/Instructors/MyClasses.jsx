@@ -67,7 +67,7 @@ const MyClasses = () => {
                   )}
                 </td>
                 <td>{singleClassData.enrolled_student}</td>
-                <td>Outstanding</td>
+                <td>{singleClassData?.feedback ? <>{singleClassData?.feedback}</>:"No Feedback"}</td>
                 <td>
                   <button>
                     <Link to={`/dashboard/update-classes/${singleClassData._id}`} className="btn btn-sm bg-[#066466] text-white">

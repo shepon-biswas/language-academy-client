@@ -29,7 +29,7 @@ const EnrolledClasses = () => {
                 <th>{index + 1}</th>
                 <td>{classInfo.name}</td>
                 <td>{classInfo.email}</td>
-                <td>{classInfo.date}</td>
+                <td>{new Date(classInfo.date).toLocaleTimeString()}, {new Date(classInfo.date).toLocaleDateString()}</td>
               </tr>
             ))}
           </tbody>
