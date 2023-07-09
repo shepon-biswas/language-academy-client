@@ -8,7 +8,7 @@ const Slider = () => {
   return (
     <div>
       <Carousel autoPlay={true}>
-        <div className="max-h-[550px]">
+        <div className="max-h-[650px]">
           <img src="https://i.ibb.co/8KTmV4T/korean-banner.jpg" />
           <div className="absolute bottom-0 left-0 w-full h-full bg-gradient-to-b from-[#06646601] to-[#066466c5] rounded">
             <div className=" absolute bottom-20 left-[10%] text-center w-5/6 mx-auto text-white">

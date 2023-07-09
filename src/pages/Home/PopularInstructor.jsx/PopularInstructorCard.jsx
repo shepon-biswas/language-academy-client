@@ -1,12 +1,15 @@
-import React from 'react';
-import { FaBookOpen, FaEnvelope, FaForward } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { FaBookOpen, FaEnvelope, FaForward } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 
-const PopularInstructorCard = ({instructorData}) => {
-    return (
-        <>
-            <div>
-        <div className="card md:w-96 bg-base-100 shadow-xl mb-5">
+const PopularInstructorCard = ({ instructorData }) => {
+  return (
+    <>
+      <div>
+        <div data-aos="zoom-out-down" className="card md:w-96 bg-base-100 shadow-xl mb-5">
           <figure>
             <img
               className="w-full h-[250px] object-cover"
@@ -27,16 +30,18 @@ const PopularInstructorCard = ({instructorData}) => {
               </div>
             </div>
             <div className="card-actions ">
-              <Link to={"/classes"} className='w-full'><button className="btn bg-[#066466] hover:bg-[#005758] w-full text-white">
-                See Classes
-                <FaForward className="w-5 h-5"></FaForward>
-              </button></Link>
+              <Link to={"/classes"} className="w-full">
+                <button className="btn bg-[#066466] hover:bg-[#005758] w-full text-white">
+                  See Classes
+                  <FaForward className="w-5 h-5"></FaForward>
+                </button>
+              </Link>
             </div>
           </div>
         </div>
       </div>
-        </>
-    );
+    </>
+  );
 };
 
 export default PopularInstructorCard;

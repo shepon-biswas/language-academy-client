@@ -8,8 +8,8 @@ import vimeologo from "../../../assets/vimeo.png"
 
 const Footer = () => {
   return (
-    <div>
-      <div className="bg-[#06646630]">
+    <div className="bg-[#06646630]">
+      <div className="w-11/12 md:w-10/12 mx-auto">
         <footer className="footer py-10 px-5 text-base-content ">
           <div className="">
             <div className="inline-flex items-center">

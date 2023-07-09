@@ -1,15 +1,16 @@
-import React, { useContext } from "react";
-import { FaDollarSign, FaPlusCircle, FaUserTie, FaUsers } from "react-icons/fa";
-import { AuthContext } from "../../../providers/AuthProvider";
-import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
+import { FaDollarSign, FaUserTie, FaUsers } from "react-icons/fa";
+
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
+AOS.init();
+
 
 const PopularClassesCard = ({ classData }) => {
     const {_id, className, instructorName, enrolled_student, classImage, price} = classData;
     
   return (
     <>
-      <div className="card md:w-96 bg-base-100 shadow-xl mb-5">
+      <div data-aos="zoom-in-up" className="card md:w-96 bg-base-100 shadow-xl mb-5">
         <figure>
           <img
             className="w-full h-[250px] object-cover"
