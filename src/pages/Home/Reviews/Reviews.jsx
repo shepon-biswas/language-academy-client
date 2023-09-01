@@ -1,5 +1,9 @@
 import React from "react";
 import { FaQuoteRight } from "react-icons/fa";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
+
 
 const Reviews = () => {
   return (
@@ -13,7 +17,8 @@ const Reviews = () => {
         </div>
         <div className="md:grid grid-cols-3 gap-5 items-center mb-14">
           <div className="col-span-2 md:grid grid-cols-2  gap-10">
-            <div className="shadow-md px-5 py-10 border relative">
+            {/* Card-1 */}
+            <div data-aos="zoom-in-up" className="shadow-md px-5 py-10 border relative">
               <div className="inline-flex items-center gap-3 ">
                 <img
                   className="rounded-full w-14 h-14"
@@ -30,7 +35,8 @@ const Reviews = () => {
               </p>
               <FaQuoteRight className="absolute top-8 right-8 w-28 h-28 opacity-50 text-[#066466]"></FaQuoteRight>
             </div>
-            <div className="shadow-md px-5 py-10 border relative">
+            {/* Card-2 */}
+            <div data-aos="zoom-in-up" className="shadow-md px-5 py-10 border relative">
               <div className="inline-flex items-center gap-3 ">
                 <img
                   className="rounded-full w-14 h-14"
@@ -47,7 +53,8 @@ const Reviews = () => {
               </p>
               <FaQuoteRight className="absolute top-8 right-8 w-28 h-28 opacity-50 text-[#066466]"></FaQuoteRight>
             </div>
-            <div className="shadow-md px-5 py-10 border relative">
+            {/* Card-3 */}
+            <div data-aos="zoom-in-up" className="shadow-md px-5 py-10 border relative">
               <div className="inline-flex items-center gap-3 ">
                 <img
                   className="rounded-full w-14 h-14"
@@ -64,7 +71,8 @@ const Reviews = () => {
               </p>
               <FaQuoteRight className="absolute top-8 right-8 w-28 h-28 opacity-50 text-[#066466]"></FaQuoteRight>
             </div>
-            <div className="shadow-md px-5 py-10 border relative">
+            {/* Card-4 */}
+            <div data-aos="zoom-in-up" className="shadow-md px-5 py-10 border relative">
               <div className="inline-flex items-center gap-3 ">
                 <img
                   className="rounded-full w-14 h-14"

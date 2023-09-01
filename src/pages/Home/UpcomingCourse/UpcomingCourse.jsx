@@ -1,17 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
+
 
 const UpcomingCourse = () => {
   return (
     <>
-      <div className="w-11/12 md:w-10/12 mx-auto my-14">
+      <div className="w-11/12 md:w-10/12 mx-auto my-[100px]">
         <div className="my-14 uppercase ">
           <h2 className="text-2xl font-bold text-center">
             ---- Why Are You
             <span className="text-[#066466]"> Waiting?</span> ----
           </h2>
         </div>
-        <div className="grid md:grid-cols-2 gap-10 justify-between">
+        {/* Left Info Section */}
+        <div data-aos="fade-right"  data-aos-duration="1500" className="grid md:grid-cols-2 gap-10 justify-between">
           <div className="w-full h-96">
             <img
               className="w-full h-full object-cover"
@@ -19,7 +24,8 @@ const UpcomingCourse = () => {
               alt="upcoming image"
             />
           </div>
-          <div className="w-full h-96 space-y-4">
+          {/* Right info section */}
+          <div data-aos="fade-left"  data-aos-duration="2000" className="w-full h-96 space-y-4">
             <h2 className="font-bold text-5xl uppercase">
               our next course is staring very soon!
             </h2>

@@ -8,7 +8,7 @@ const Slider = () => {
   return (
     <div>
       <Carousel autoPlay={true}>
-        <div className="max-h-[650px]">
+        <div className="max-h-[calc(100vh-150px)]">
           <img src="https://i.ibb.co/8KTmV4T/korean-banner.jpg" />
           <div className="absolute bottom-0 left-0 w-full h-full bg-gradient-to-b from-[#06646601] to-[#066466c5] rounded">
             <div className=" absolute bottom-20 left-[10%] text-center w-5/6 mx-auto text-white">
@@ -25,7 +25,7 @@ const Slider = () => {
             </div>
           </div>
         </div>
-        <div className="max-h-[550px]">
+        <div className="max-h-[calc(100vh-150px)]">
           <img src="https://i.ibb.co/K67vMWj/spanish-banner.jpg" />
           <div className="absolute bottom-0 left-0 w-full h-full bg-gradient-to-b from-[#06646601] to-[#066466c5] rounded">
             <div className=" absolute bottom-20 left-[10%] text-center w-5/6 mx-auto text-white   ">
@@ -42,7 +42,7 @@ const Slider = () => {
             </div>
           </div>
         </div>
-        <div className="max-h-[550px]">
+        <div className="max-h-[calc(100vh-150px)]">
           <img src="https://i.ibb.co/Z2G11CG/chinese-banner.jpg" />
           <div className="absolute bottom-0 left-0 w-full h-full bg-gradient-to-b from-[#06646601] to-[#066466c5] rounded">
             <div className=" absolute bottom-20 left-[10%] text-center w-5/6 mx-auto text-white   ">
@@ -57,7 +57,7 @@ const Slider = () => {
             </div>
           </div>
         </div>
-        <div className="max-h-[550px]">
+        <div className="max-h-[calc(100vh-150px)]">
           <img src="https://i.ibb.co/4YDwbzb/germen-banner.jpg" />
           <div className="absolute bottom-0 left-0 w-full h-full bg-gradient-to-b from-[#06646601] to-[#066466c5] rounded">
             <div className=" absolute bottom-20 left-[10%] text-center w-5/6 mx-auto text-white   ">

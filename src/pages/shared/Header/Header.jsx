@@ -64,7 +64,7 @@ const Header = () => {
                 </li>
               </ul>
             </div>
-            <NavLink className="font-bold md:text-2xl inline-flex items-center gap-2">
+            <NavLink className="font-bold text-sm md:text-xl inline-flex items-center gap-2">
               {" "}
               <img
                 className="rounded-full w-16 h-16"

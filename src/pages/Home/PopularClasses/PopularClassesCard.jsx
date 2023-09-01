@@ -10,7 +10,7 @@ const PopularClassesCard = ({ classData }) => {
     
   return (
     <>
-      <div data-aos="zoom-in-up" className="card md:w-96 bg-base-100 shadow-xl mb-5">
+      <div data-aos="zoom-in-up" className="card  md:w-11/12 lg:w-11/12 bg-base-100 shadow-xl mb-5">
         <figure>
           <img
             className="w-full h-[250px] object-cover"
