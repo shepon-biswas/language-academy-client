@@ -8,6 +8,7 @@ import PopularInstructor from '../PopularInstructor.jsx/PopularInstructor';
 import PopularClasses from '../PopularClasses/PopularClasses';
 import Overview from '../Overview/Overview';
 import UpcomingCourse from '../UpcomingCourse/UpcomingCourse';
+import WhyUs from '../WhyUs/WhyUs';
 
 const Home = () => {
     return (
@@ -21,6 +22,7 @@ const Home = () => {
             <ForGrowth></ForGrowth>
             <Overview></Overview>
             <Reviews></Reviews>
+            <WhyUs></WhyUs>
             <UpcomingCourse></UpcomingCourse>
             <Partner></Partner>
         </div>
